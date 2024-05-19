@@ -1,0 +1,27 @@
+{
+  "name": "cluster-overview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start-database": "docker-compose -p cluster up",
+    "start-cluster": "node dist/cluster.js",
+    "start-nocluster": "node dist/nocluster.js",
+    "loadtest": "docker run --network=\"host\" --rm -i grafana/k6 run --vus 50 --duration 60s - <dist/k6.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/k6": "^0.51.0",
+    "@types/node": "^20.12.12",
+    "@types/pg": "^8.11.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.5"
+  }
+}
